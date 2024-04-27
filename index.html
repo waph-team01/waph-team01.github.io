@@ -42,12 +42,12 @@
         .team-member-details h2 {
             margin-bottom: 10px;
             font-size: 1.5em;
-            color: #333; /* Updated color */
+            color: #333; 
         }
 
         .team-member-details p {
             margin-bottom: 20px;
-            color: #666; /* Updated color */
+            color: #666; 
         }
 
         .team-member-details a {
@@ -60,20 +60,22 @@
         }
 
         .youtube-player {
+            margin: 0 auto; 
+            text-align: center;
             margin-bottom: 20px;
-        }
-
-        .readme-content {
-            display: none;
         }
 
         .toggle-readme {
             text-align: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="toggle-readme">
+        <a href="https://github.com/waph-team01/waph-teamproject/blob/main/README.md" target="_blank">View README.md file</a>
+    </div>
+
     <!-- YouTube player -->
     <div class="youtube-player">
         <div id="player"></div>
@@ -122,13 +124,6 @@
 
     </div>
 
-    <div class="toggle-readme">
-        <a href="#" onclick="toggleReadme()">View README.md</a>
-    </div>
-
-    <div class="readme-content" id="readme-content">
-    </div>
-
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var player;
@@ -146,27 +141,6 @@
                 }
             });
         }
-
-        function toggleReadme() {
-            var readmeContent = document.getElementById('readme-content');
-            if (readmeContent.style.display === 'none') {
-                readmeContent.style.display = 'block';
-                fetchReadme();
-            } else {
-                readmeContent.style.display = 'none';
-            }
-        }
-
-        function fetchReadme() {
-            fetch('README.md')
-                .then(response => response.text())
-                .then(data => {
-                    var converter = new showdown.Converter();
-                    var html = converter.makeHtml(data);
-                    document.getElementById('readme-content').innerHTML = html;
-                });
-        }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
 </body>
 </html>
