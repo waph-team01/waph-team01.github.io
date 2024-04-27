@@ -70,47 +70,8 @@
         <div id="player"></div>
     </div>
 
-    <div class="team-container">
-        <!-- Team member 1 -->
-        <div class="team-member">
-            <img src="images/tulasiram-headshot.jpg" alt="Tulasiram Nakkanaboina">
-            <div class="team-member-details">
-                <h2>Tulasiram Nakkanaboina</h2>
-                <p>Interested in Java Backend Development</p>
-                <a href="https://nakkantm-uc.github.io//">Personal Homepage</a>
-            </div>
-        </div>
-
-        <!-- Team member 2 -->
-        <div class="team-member">
-            <img src="images/grahika.jpg" alt="Grahika Rampudi">
-            <div class="team-member-details">
-                <h2>Grahika Rampudi</h2>
-                <p>Passionate about Frontend Development</p>
-                <a href="https://rampudga.github.io/">Personal Homepage</a>
-            </div>
-        </div>
-
-        <!-- Team member 3 -->
-        <div class="team-member">
-            <img src="images/sandeep.jpg" alt="Sai Sandeep Pasham">
-            <div class="team-member-details">
-                <h2>Sai Sandeep Pasham</h2>
-                <p>Fascinated by Database Management</p>
-                <a href="https://pashamsp.github.io/">Personal Homepage</a>
-            </div>
-        </div>
-
-        <!-- Team member 4 -->
-        <div class="team-member">
-            <img src="images/rasalavh-headshot.jpg" alt="Vihasith Rasala">
-            <div class="team-member-details">
-                <h2>Vihasith Rasala</h2>
-                <p>Professional Graphic Designer</p>
-                <a href="https://Vihasith137.github.io/">Personal Homepage</a>
-            </div>
-        </div>
-
+    <div class="team-container" id="readme-content">
+        <!-- Content from README.md will be inserted here -->
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -130,6 +91,15 @@
                 }
             });
         }
+
+        fetch('README.md')
+            .then(response => response.text())
+            .then(data => {
+                var converter = new showdown.Converter();
+                var html = converter.makeHtml(data);
+                document.getElementById('readme-content').innerHTML = html;
+            });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
 </body>
 </html>
